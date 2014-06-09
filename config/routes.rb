@@ -1,10 +1,13 @@
 P::Application.routes.draw do
 
-root "welcome#index"
+  scope :api do
+    get "/messages(.:format)" => "messages#index"
+  end
 
-resources :messages, only: [:index, :show, :create, :destroy]
+  root "home#index"
 
-devise_for :users
+  resources :messages, only: [:index, :show, :create, :destroy]
 
+  devise_for :users
 
 end

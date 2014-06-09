@@ -1,5 +1,12 @@
 class MessagesController < ApplicationController
 
+
+  # GET / messages.json
+  def index
+    # maybe MessageS?.all
+    render json: Message.all
+  end
+
   def create
     @message = Message.new(message_params)
     render json: @message
