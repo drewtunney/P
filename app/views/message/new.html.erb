@@ -1,0 +1,9 @@
+  <%= form_for @message do |f| %>
+    <%= f.label :message %>:
+    <%= f.text_field :message %><br />
+
+    <%= f.label :tags %>:
+    <%= f.text_field :tags %><br />
+
+    <%= f.submit %>
+  <% end %>
