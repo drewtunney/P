@@ -1,8 +1,34 @@
-// App.controller 'ScreencastsCtrl', ['$scope', ($scope) ->
-//   $scope.message = "Angular Rocks!"
-// ]
 
-
-App.controller('MessagesCtrl', function($scope) {
+App.controller('MessagesCtrl', function($scope, $http) {
   $scope.message = "Angular!!"
+  loadData();
+
+  $scope.refresh = function() {
+    loadData();
+  }
+
+  function loadData() {
+    $http.get('/api/messages').success(function(data){
+      $scope.messages = data;
+      console.log(data);
+    });
+  };
+});
+
+App.controller('CreateMessageCtrl', function($scope, $http) {
+
+  $scope.createMessage = function() {
+
+    var message = {
+      content: $scope.messageContents,
+      likes: 0,
+      tags: "guttate",
+    };
+
+    console.log(message);
+
+    // $scope.messages.push(message);
+    $http.post('users/'+ p.currentUserId + '/messages', message);
+
+  };
 });

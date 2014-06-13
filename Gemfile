@@ -7,6 +7,7 @@ gem 'rails', '4.0.4'
 gem 'sqlite3'
 gem 'pg'
 gem 'devise'
+gem 'pry-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

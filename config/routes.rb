@@ -6,8 +6,12 @@ P::Application.routes.draw do
 
   root "home#index"
 
-  resources :messages, only: [:index, :show, :create, :destroy]
+  # resources :messages, only: [:index, :new, :show, :create, :destroy]
 
-  devise_for :users
+  devise_for :users, :path => 'accounts'
+
+  resources :users do
+    resources :messages
+  end
 
 end
