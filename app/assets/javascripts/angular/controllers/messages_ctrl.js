@@ -10,7 +10,6 @@ App.controller('MessagesCtrl', function($scope, $http) {
   function loadData() {
     $http.get('/api/messages').success(function(data){
       $scope.messages = data;
-      console.log(data);
     });
   };
 
@@ -20,6 +19,7 @@ App.controller('MessagesCtrl', function($scope, $http) {
     }
     $http.post('users/'+ p.currentUserId + '/messages', message);
     loadData();
+    $scope.messageContents = null;
   }
 
 });
