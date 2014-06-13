@@ -13,22 +13,28 @@ App.controller('MessagesCtrl', function($scope, $http) {
       console.log(data);
     });
   };
-});
-
-App.controller('CreateMessageCtrl', function($scope, $http) {
 
   $scope.createMessage = function() {
-
     var message = {
       content: $scope.messageContents,
-      likes: 0,
-      tags: "guttate",
-    };
-
-    console.log(message);
-
-    // $scope.messages.push(message);
+    }
     $http.post('users/'+ p.currentUserId + '/messages', message);
+    loadData();
+  }
 
-  };
 });
+
+// App.controller('CreateMessageCtrl', function($scope, $http) {
+
+//   $scope.createMessage = function() {
+
+//     var message = {
+//       content: $scope.messageContents,
+//       likes: 0,
+//       tags: "guttate",
+//     };
+
+//     $http.post('users/'+ p.currentUserId + '/messages', message);
+
+//   };
+// });

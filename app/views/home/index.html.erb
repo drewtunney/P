@@ -1,6 +1,6 @@
 
-<!-- Create A Message -->
-<section ng-controller="CreateMessageCtrl">
+<div ng-controller="MessagesCtrl">
+  <h1>Message: {{message}}</h1>
 
   <h4>Compose Message</h4>
   <form ng-submit="createMessage()">
@@ -8,27 +8,8 @@
     <button type="submit"> Create Message </button>
   </form>
 
-</section>
-
-
-
-<div ng-controller="MessagesCtrl">
-  <h1>Message: {{message}}</h1>
   <ul ng-repeat="message in messages">
-    <li> {{message.id}} </li>
     <li> {{message.content}} </li>
-    <li> {{message.tags}} </li>
-    <li> {{message.likes}} </li>
   </ul>
   <button ng-click="refresh()">Refresh</button>
 </div>
-
-<!-- <div ng-controller="MessagesCtrl">
-  <div id="message-list-container">
-    <ul>
-      <li ng-repeat="message in messages">
-        <h3>{{message.content}} <small>({{message.likes}})</small></h3>
-      </li>
-    </ul>
-  </div>
-</div> -->
