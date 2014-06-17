@@ -16,6 +16,12 @@ class MessagesController < ApplicationController
     render json: @message
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    render json: @message
+  end
+
 
   private
 

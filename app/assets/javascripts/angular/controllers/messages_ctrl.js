@@ -17,9 +17,16 @@ App.controller('MessagesCtrl', function($scope, $http) {
     var message = {
       content: $scope.messageContents,
     }
-    $http.post('users/'+ p.currentUserId + '/messages', message);
-    loadData();
+    $http.post('users/'+ p.currentUserId + '/messages', message).success(function(data){
+      loadData();  
+    })
     $scope.messageContents = null;
+  }
+
+  $scope.deleteMessage = function() {
+    $http.delete('users/'+ p.currentUserId + '/messages/' + this.message.id).success(function(data){
+      loadData();
+    })
   }
 
 });

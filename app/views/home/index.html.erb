@@ -9,7 +9,8 @@
   </form>
 
   <ul ng-repeat="message in messages">
-    <li> {{message.content}} </li>
+    <li> {{message.content}} <i ng-click="deleteMessage()" class="fa fa-trash-o"></i> </li>
+
   </ul>
   <button ng-click="refresh()">Refresh</button>
 </div>
