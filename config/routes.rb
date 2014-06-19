@@ -14,4 +14,7 @@ P::Application.routes.draw do
     resources :messages
   end
 
+# TODO: nest into users and then update path on the link
+  resources :friendships
+
 end
