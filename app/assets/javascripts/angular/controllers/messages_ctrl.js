@@ -1,6 +1,4 @@
-
 App.controller('MessagesCtrl', function($scope, $http) {
-  $scope.message = "Angular!!"
   loadData();
 
   $scope.refresh = function() {
@@ -10,6 +8,7 @@ App.controller('MessagesCtrl', function($scope, $http) {
   function loadData() {
     $http.get('/api/messages').success(function(data){
       $scope.messages = data;
+      console.log(data);
     });
   };
 
@@ -24,24 +23,14 @@ App.controller('MessagesCtrl', function($scope, $http) {
   }
 
   $scope.deleteMessage = function() {
-    $http.delete('users/'+ p.currentUserId + '/messages/' + this.message.id).success(function(data){
+    console.log(this.message.messages.id);
+    $http.delete('users/'+ p.currentUserId + '/messages/' + this.message.messages.id).success(function(data){
       loadData();
     })
   }
 
+  $scope.like = function() {
+    console.log(this.message);
+  }
+
 });
-
-// App.controller('CreateMessageCtrl', function($scope, $http) {
-
-//   $scope.createMessage = function() {
-
-//     var message = {
-//       content: $scope.messageContents,
-//       likes: 0,
-//       tags: "guttate",
-//     };
-
-//     $http.post('users/'+ p.currentUserId + '/messages', message);
-
-//   };
-// });

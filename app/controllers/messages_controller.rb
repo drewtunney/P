@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET / messages.json
   def index
     # maybe MessageS?.all
-    render json: Message.all
+    render json: Message.all, root: "messages"
   end
 
   def new
