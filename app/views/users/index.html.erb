@@ -1,5 +1,6 @@
 <% for user in @users %>
   <ul>
-    <li> email is <%= user.email %></li> <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+    <li> email is <%= user.email %></li> <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
   </ul>
+  
 <% end %>
