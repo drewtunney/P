@@ -23,7 +23,6 @@ App.controller('MessagesCtrl', function($scope, $http) {
   }
 
   $scope.deleteMessage = function() {
-    console.log(this.message.messages.id);
     $http.delete('users/'+ p.currentUserId + '/messages/' + this.message.messages.id).success(function(data){
       loadData();
     })
